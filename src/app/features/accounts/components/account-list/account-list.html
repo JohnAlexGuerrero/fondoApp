@@ -1,0 +1,17 @@
+<p>account-list works!</p>
+
+<mat-list>
+    @if(miembros.length == 0) {
+        <p>No hay miembros, aun.</p>
+    }
+
+    @for(miembro of miembros; track miembro.id) {
+        <mat-list-item :key="miembro.id">
+            <mat-icon matListItemIcon aria-hidden="false" aria-label="Example trending_up icon" fontIcon="face" class="material-icons md-light { color: rgba(255, 255, 255, 1); } md-36"></mat-icon>
+            <p matListItemTitle>{{ miembro.full_name }}</p>
+            <p matListItemLine>{{ miembro.total_aportes | currency:'USD':'symbol' }}</p>
+            <small matListItemLine>{{ miembro.created_at }}</small>
+            <button matButton [routerLink]="['/miembros', miembro.id]">Ver</button>
+        </mat-list-item>
+    }
+</mat-list>

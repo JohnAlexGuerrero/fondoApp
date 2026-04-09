@@ -1,0 +1,24 @@
+
+<mat-list>
+    @if(transactions.length == 0) {
+      <p>No hay movimientos registrados.</p>
+    }
+
+    @for(transaction of transactions; track transaction.id) {
+      <mat-list-item :key="transaction.id">
+        <div style="display: flex; justify-content: left; align-items:center;padding: 3px;">
+          @if (transaction.type == 'Ingreso') {
+            <mat-icon aria-hidden="false" aria-label="Example trending_up icon" fontIcon="trending_up"></mat-icon>
+          }@else {
+            <mat-icon aria-hidden="false" aria-label="Example trending_down icon" fontIcon='trending_down'></mat-icon>
+          }
+
+          <div style="margin-left: 5px;">
+            <p matListItemTitle class="description-large">{{ transaction.description }}</p>
+            <span matListItemLine style="color: rgb(189, 192, 194);">{{ transaction.created_at | date:'dd MMM yy hh:mm a' }}</span>
+          </div>
+          <span style="font-size: 22px; font-weight:bold;">{{ transaction.amount | currency:'USD':'symbol' }}</span>
+        </div>
+      </mat-list-item>
+    }
+</mat-list>

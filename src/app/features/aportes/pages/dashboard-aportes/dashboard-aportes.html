@@ -1,0 +1,19 @@
+<p>dashboard-aportes works!</p>
+
+@for(miembro of miembros(); track miembro.id) {
+    <mat-card :key="miembro.id">
+        <mat-card-header>
+            <mat-icon matListItemIcon aria-hidden="false" aria-label="Example trending_up icon" fontIcon="face" class="material-icons md-light { color: rgba(255, 255, 255, 1); } md-36"></mat-icon>
+            <p matListItemTitle>{{ miembro.full_name }}</p>
+            <p matListItemLine>{{ miembro.total_aportes | currency:'USD':'symbol' }}</p>
+            <small matListItemLine>{{ miembro.created_at }}</small>
+            <!-- <button matButton [routerLink]="['/miembros', miembro.id]">Ver</button> -->
+        </mat-card-header>
+        <mat-card-content>
+            <app-stacked-bar [userId]="miembro.id" [fondoId]="fondoId"></app-stacked-bar>   
+        </mat-card-content>
+        <mat-card-footer></mat-card-footer>
+    </mat-card>
+}
+<!-- <app-aporte-list [miembroId]="'miembro_id'"></app-aporte-list> -->
+

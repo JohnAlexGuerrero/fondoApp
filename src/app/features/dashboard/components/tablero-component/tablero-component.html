@@ -1,0 +1,26 @@
+<section id="summary">
+    
+    @for(tablero of tablerosData; track tablero.id;) {
+        @if(tablero.value != 0) {
+            <mat-card appearance="outlined" class="outlined-outline-width card">
+                <mat-card-header>
+                    <mat-card-title class="subtitle">
+                        <mat-icon aria-hidden="false" aria-label="Example trending_up icon" fontIcon=tablero.icon class="mat-card-title"></mat-icon>
+                        {{tablero.title}}
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div style="display: flex; align-items: center; gap:8px;">
+                        <h3 class="mat-card-title">{{ tablero.value | currency:'USD':'symbol' }}</h3>
+                    </div>
+                </mat-card-content>
+                <mat-card-footer>
+                    <!-- <mat-icon aria-hidden="false" aria-label="Example arrow_up icon" fontIcon='arrow' class="mat-card-title"></mat-icon> -->
+                    <p>2.3% vs ultimos 7 días</p>
+                </mat-card-footer>
+            </mat-card>
+        }
+        
+    }
+
+</section>

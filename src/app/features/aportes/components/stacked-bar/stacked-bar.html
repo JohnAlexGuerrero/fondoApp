@@ -1,0 +1,16 @@
+<p>stacked-bar works!</p>
+<mat-card appearance="outlined" class="card-graphic">
+  <mat-card-header>
+    <mat-card-subtitle style="color: rgb(164, 172, 180);">Balance actual</mat-card-subtitle>
+    <mat-card-title class="title-text-size subtitle-text-size">
+      <strong>
+        <!-- {{ totalBalance() | currency:'USD':'symbol' }} -->
+      </strong>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <canvas #myChart>{{chart}}</canvas>
+  </mat-card-content>
+
+</mat-card>

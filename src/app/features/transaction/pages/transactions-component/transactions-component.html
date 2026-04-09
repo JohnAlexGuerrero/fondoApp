@@ -1,0 +1,15 @@
+<p>transactions-component works!</p>
+<div>
+    <small>Filtrar por:</small>
+    <button mat-button (click)="getAllTransactions()" ngClass="{'button-active': isActive}">Todos</button>
+    <button mat-button (click)="filterAportes()">Aportes</button>
+    <button mat-button (click)="filterEventos()">Eventos</button>
+    <button mat-button (click)="filterPrestamos()">Prestamos</button>
+    <button mat-button (click)="filterGastos()">Gastos</button>
+</div>
+
+<div style="margin-top: 10px;">
+    <mat-divider></mat-divider>
+    <app-transactions-list [transactions]="transactions()"></app-transactions-list>
+
+</div>
