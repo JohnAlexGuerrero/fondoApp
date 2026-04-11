@@ -1,0 +1,19 @@
+<p>transactions-user works!</p>
+
+<!-- <div>
+    <small>Filtrar por:</small>
+    <button mat-button (click)="getAllTransactions()" ngClass="{'button-active': isActive}">Todos</button>
+    <button mat-button (click)="filterAportes()">Aportes</button>
+    <button mat-button (click)="filterEventos()">Eventos</button>
+    <button mat-button (click)="filterPrestamos()">Prestamos</button>
+</div> -->
+
+<div style="margin-top: 10px;">
+    <app-prestamos-list [dataSource]="prestamos()"></app-prestamos-list>
+</div>
+
+<div style="margin-top: 10px;">
+    <mat-divider></mat-divider>
+    <app-transactions-list [transactions]="transactions()"></app-transactions-list>
+
+</div>

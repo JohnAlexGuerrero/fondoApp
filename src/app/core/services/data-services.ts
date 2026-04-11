@@ -392,5 +392,24 @@ export class DataServices {
       console.log(error);
     }
   }
+
+  // consulta de los prestamos por miembro
+  async getPrestamoPorMiembro(miembroId: number, fondoId: number): Promise<any> {
+    try {
+      let { data, error } = await this.supabaseServices.supabase
+        .from('prestamo')
+        .select('*')
+        .eq('miembro_id', miembroId)
+        .eq('fondo_id', fondoId)
+        .order('created_at', { ascending: true })
+
+        if (error) alert(error.message)
+        else console.log(data)
+
+        return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 

@@ -1,3 +1,40 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './features/dashboard/pages/home-component/home-component';
+import { DashboardAportes } from './features/aportes/pages/dashboard-aportes/dashboard-aportes';
+import { TransactionsComponent } from './features/transaction/pages/transactions-component/transactions-component';
+import { DashboardUser } from './features/dashboard/pages/dashboard-user/dashboard-user';
+import { AccountComponent } from './features/accounts/pages/account-component/account-component';
+import { TransactionsUser } from './features/transaction/pages/transactions-user/transactions-user';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent,
+        title: 'Home'
+    },
+    {
+        path: 'transacciones',
+        component: TransactionsComponent,
+        title: 'Transacciones'
+    },
+    {
+        path: 'transacciones/:id',
+        component: TransactionsUser,
+        title: 'transacciones miembro'
+    },
+    {
+        path: 'aportes',
+        component: DashboardAportes,
+        title: 'Aportes'
+    },
+    {
+        path: 'miembros',
+        component: AccountComponent,
+        title: 'Miembros'
+    },
+    {
+        path: 'miembros/:id',
+        component: DashboardUser,
+        title: 'dashboard miembro'
+    }
+];

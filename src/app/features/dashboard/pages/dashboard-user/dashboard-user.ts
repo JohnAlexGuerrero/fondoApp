@@ -2,8 +2,9 @@ import { Component, effect, signal } from '@angular/core';
 import { DataServices } from '../../../../core/services/data-services';
 import { TableroComponent, TableroData } from '../../components/tablero-component/tablero-component';
 import { DoughnutChartComponent } from "../../components/doughnut-chart-component/doughnut-chart-component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { User } from '../../../accounts/components/user/user';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-dashboard-user',
@@ -11,6 +12,8 @@ import { User } from '../../../accounts/components/user/user';
     TableroComponent,
     DoughnutChartComponent,
     User,
+    MatButton,
+    RouterLink
 ],
   templateUrl: './dashboard-user.html',
   styles: ``,

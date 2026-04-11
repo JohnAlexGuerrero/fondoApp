@@ -4,17 +4,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip'; // Opcional, para mostrar nombres al pasar el mouse
 import { DataServices } from '../../../core/services/data-services';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-component',
   standalone:true,
   imports: [
     MatIconModule,
-    MatToolbarModule, MatTooltipModule, MatButtonModule
+    MatToolbarModule, MatTooltipModule, MatButtonModule, RouterLink
   ],
   templateUrl: './navbar-component.html',
   styles: `
-      .spacer {
+    .spacer {
       flex: 1 1 auto; /* Esto empuja los iconos a la derecha */
     }
 
@@ -34,7 +35,7 @@ import { DataServices } from '../../../core/services/data-services';
   `,
 })
 export class NavbarComponent {
-  nameFondo: string = "Mi aplicación";
+  nameFondo: string = "Fondo Amor y Esperanza";
 
   constructor(
     private dataServices: DataServices
