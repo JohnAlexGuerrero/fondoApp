@@ -5,5 +5,6 @@ export interface Transaction {
     amount: number;
     type?: string;
     status?: string;
+    isActive?: boolean;
     created_at: string;
 }

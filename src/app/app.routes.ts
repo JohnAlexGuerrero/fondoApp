@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './features/dashboard/pages/home-component/home-component';
 import { DashboardAportes } from './features/aportes/pages/dashboard-aportes/dashboard-aportes';
 import { TransactionsComponent } from './features/transaction/pages/transactions-component/transactions-component';
-import { DashboardUser } from './features/dashboard/pages/dashboard-user/dashboard-user';
 import { AccountComponent } from './features/accounts/pages/account-component/account-component';
 import { TransactionsUser } from './features/transaction/pages/transactions-user/transactions-user';
+import { Dashboard } from './features/user/pages/dashboard/dashboard';
 
 export const routes: Routes = [
     {
@@ -34,7 +34,7 @@ export const routes: Routes = [
     },
     {
         path: 'miembros/:id',
-        component: DashboardUser,
+        component: Dashboard,
         title: 'dashboard miembro'
     }
 ];

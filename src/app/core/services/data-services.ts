@@ -398,7 +398,7 @@ export class DataServices {
     try {
       let { data, error } = await this.supabaseServices.supabase
         .from('prestamo')
-        .select('*')
+        .select('id, amount, status, created_at')
         .eq('miembro_id', miembroId)
         .eq('fondo_id', fondoId)
         .order('created_at', { ascending: true })
@@ -411,5 +411,26 @@ export class DataServices {
       console.log(error);
     }
   }
+  
+  // Consulta de transacciones hechas por un miembro especifico organizadas por fecha
+  async transaccionesPorMiembro(miembroId: number, fondoId: number): Promise<any> {
+    try {
+      let { data, error } = await this.supabaseServices.supabase
+      .rpc('fn_transactions_by_member', {
+        p_fondo_id: fondoId, 
+        p_miembro_id: miembroId
+      })
+  
+      if (error) alert(error.message)
+      else console.log(data)
+  
+      return data;
+  
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
+
+
 

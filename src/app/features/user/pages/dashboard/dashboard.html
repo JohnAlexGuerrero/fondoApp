@@ -1,0 +1,170 @@
+<header
+    class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border border-slate-200">
+            <img alt="User" class="w-full h-full object-cover"
+                data-alt="professional portrait of a financial associate in business attire with a confident expression and soft corporate office lighting"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmlCdM46wVbm6AweL1VESR4haZq0ZOKnVr8WuT-o05fV7QbRYTGP0FNETKwFCTijuzHH5Gu_IxZHp9eydmbaMdaWtWeohfcI3SMPJkwdMpPpAMRZow3LM0L8v2e7miWDI-buYHQ4i_dsljxyGp8ttAsl4vdkgS0ZdSyotaUdAHT00HNkQBOlnL8whLpGj8bwghrDWKydgptxKMSaQc81znVvtJXU_g22uxC-DlUo_pJbwaUiUqW9021XYdaUAlFMbR6fo_vA0hbbQ" />
+        </div>
+        <span class="text-xl font-bold text-[#1A365D]">Member Fund CRM</span>
+    </div>
+    <div class="flex items-center gap-4">
+        <button class="p-2 rounded-full hover:bg-slate-50 transition-colors active:opacity-80">
+            <span class="material-symbols-outlined text-slate-500" data-icon="notifications">notifications</span>
+        </button>
+    </div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-24 px-6 max-w-[1440px] mx-auto min-h-screen">
+    <div class="mt-3">
+        <h1 class="p-5 text-3xl font-bold text-[#1A365D]">Bienvenid(a), {{userName().toUpperCase()}}</h1>
+    </div>
+    <!-- Bento Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+        <!-- Prominent Balance Card (Span 8) -->
+        <section
+            class="md:col-span-8 bg-white border border-slate-200 rounded-xl p-lg shadow-[0_2px_4px_rgba(26,54,93,0.05)] relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                <img alt="Pattern" class="w-full h-full object-contain"
+                    data-alt="subtle mathematical grid pattern with geometric lines and nodes symbolizing financial connectivity and growth"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpmec6uhES4dyJB5-QDkAgdwNJ8T_u7RzZhC3bXMmIjW1Us1EndEQGkldKFYT7n4Bnwm253pJ1gjbCWSUL1M_9CLYrz1VbbumgDQIoyqtZM--xdjTYSiZHZPZ3e-X3GTl_f11lT4yqJfPdrssWgrv-YhcQWtNNy5cFkjuSTrvvWI1CYrTXHhMcWEtaI2W7e_9v0HAPMQymxCiKW_JM98kCkb3E1jxbGogvUIWfzoWdeUxWqIKEvFk9UXwcQm6LKzm8IVnvTIXucEc" />
+            </div>
+            <div class="relative z-10">
+                <p class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-widest mb-xs">Total
+                    Aportes</p>
+                <h1 class="font-headline-xl text-headline-xl text-primary mb-md">{{totalAportes().toFixed(2) | currency: 'USD': 'symbol'}}</h1>
+                <div class="flex items-center gap-sm">
+                    <span
+                        class="flex items-center gap-1 text-on-secondary-container bg-secondary-container px-2 py-0.5 rounded text-xs font-bold">
+                        <span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                        +4.2%
+                    </span>
+                    <span class="font-body-md text-on-surface-variant text-sm tracking-tight">Growth from last
+                        quarter</span>
+                </div>
+            </div>
+            <!-- Quick Actions Integrated -->
+            <div class="mt-xl flex flex-wrap gap-md">
+                <button
+                    class="flex items-center gap-2 bg-[#1A365D] text-white px-md py-sm rounded-lg font-headline-sm text-sm hover:opacity-90 active:scale-95 transition-all">
+                    <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    New Contribution
+                </button>
+                <button
+                    class="flex items-center gap-2 border border-[#1A365D] text-[#1A365D] px-md py-sm rounded-lg font-headline-sm text-sm hover:bg-slate-50 active:scale-95 transition-all">
+                    <span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+                    Request Loan
+                </button>
+                <button
+                    class="flex items-center gap-2 border border-slate-200 text-on-surface-variant px-md py-sm rounded-lg font-headline-sm text-sm hover:bg-slate-50 active:scale-95 transition-all">
+                    <span class="material-symbols-outlined" data-icon="event">event</span>
+                    View Events
+                </button>
+            </div>
+        </section>
+        <!-- Reminder Card (Span 4) -->
+        <section
+            class="md:col-span-4 bg-primary-container text-white border border-transparent rounded-xl p-lg shadow-lg flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between mb-lg">
+                    <span class="font-label-md text-label-md text-primary-fixed uppercase tracking-widest">Next
+                        Contribution</span>
+                    <span class="material-symbols-outlined text-primary-fixed" data-icon="schedule">schedule</span>
+                </div>
+                <p class="font-headline-md text-headline-md text-white mb-xs">$1,250.00</p>
+                <div class="flex items-center gap-2 text-primary-fixed">
+                    <span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+                    <span class="font-body-md text-sm">Due October 24, 2023</span>
+                </div>
+            </div>
+            <button
+                class="mt-lg w-full py-md bg-white text-primary font-bold rounded-lg text-sm hover:bg-primary-fixed transition-colors active:opacity-90">
+                Automate Payment
+            </button>
+        </section>
+        <!-- Asymmetric Data Visualization Placeholder / Stats -->
+        <section class="md:col-span-4 bg-white border border-slate-200 rounded-xl p-lg shadow-sm">
+            <h3 class="font-headline-sm text-headline-sm text-primary mb-md">Portfolio Mix</h3>
+            <div class="space-y-md">
+                <div class="flex justify-between items-center">
+                    <span class="font-body-md text-on-surface-variant">Liquid Savings</span>
+                    <span class="font-data-numeral text-data-numeral text-primary">65%</span>
+                </div>
+                <div class="w-full bg-surface-container rounded-full h-1.5">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="font-body-md text-on-surface-variant">Term Deposits</span>
+                    <span class="font-data-numeral text-data-numeral text-primary">35%</span>
+                </div>
+                <div class="w-full bg-surface-container rounded-full h-1.5">
+                    <div class="bg-secondary h-1.5 rounded-full" style="width: 35%"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Recent Activity Table (Span 8) -->
+        <section class="md:col-span-8 bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+            <div class="p-lg border-b border-slate-100 flex justify-between items-center">
+                <h3 class="font-headline-sm text-headline-sm text-primary">Transacciones Recientes</h3>
+                <button
+                    class="text-on-primary-container font-label-md text-xs hover:underline uppercase tracking-wide">See
+                    All</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr
+                            class="bg-slate-50 font-label-md text-on-tertiary-container text-[11px] uppercase tracking-wider">
+                            <th class="px-lg py-md">Date</th>
+                            <th class="px-lg py-md">Description</th>
+                            <th class="px-lg py-md">Type</th>
+                            <th class="px-lg py-md text-right">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        @for (item of transactions(); track $index) {
+                            <tr class="hover:bg-surface-container-low transition-colors group">
+                                <td class="px-lg py-md font-body-md text-on-surface-variant">{{ item.created_at | date:'dd MMM yy' }}</td>
+                                <td class="px-lg py-md font-body-md text-on-surface font-medium">{{item.description}}</td>
+                                <td class="px-lg py-md">
+                                    <span
+                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase" ngClass="item.isActive ? 'bg-on-secondary-container/10 text-on-secondary-container': 'bg-on-error-container/10 text-on-error-container'">{{item.type}}</span>
+                                </td>
+                                @if (item.isActive) {
+                                    <td class="px-lg py-md font-data-numeral text-right text-secondary font-bold">+{{item.amount | currency: 'USD':'symbol'}}</td>
+                                }@else {
+                                    <td class="px-lg py-md font-data-numeral text-right text-error font-bold">-{{item.amount | currency: 'USD':'symbol'}}</td>
+                                }
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</main>
+<!-- BottomNavBar -->
+<nav
+    class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe bg-white border-t border-slate-200 shadow-[0_-2px_10px_rgba(26,54,93,0.05)]">
+    <a class="flex flex-col items-center justify-center text-[#1A365D] font-bold border-t-2 border-[#1A365D] pt-2 scale-95 active:scale-90 transition-transform duration-150"
+        href="#">
+        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+        <span class="font-['Inter'] text-[11px] font-medium">Dashboard</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 pt-2 hover:text-[#1A365D] scale-95 active:scale-90 transition-transform duration-150"
+        href="#">
+        <span class="material-symbols-outlined" data-icon="payments">payments</span>
+        <span class="font-['Inter'] text-[11px] font-medium">Contributions</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 pt-2 hover:text-[#1A365D] scale-95 active:scale-90 transition-transform duration-150"
+        href="#">
+        <span class="material-symbols-outlined" data-icon="monetization_on">monetization_on</span>
+        <span class="font-['Inter'] text-[11px] font-medium">Earnings</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 pt-2 hover:text-[#1A365D] scale-95 active:scale-90 transition-transform duration-150"
+        href="#">
+        <span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+        <span class="font-['Inter'] text-[11px] font-medium">Credit</span>
+    </a>
+</nav>
