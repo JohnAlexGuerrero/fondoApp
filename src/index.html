@@ -1,13 +1,131 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>FondoappFrontend</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Member Fund CRM - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Work+Sans:wght@500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#ffffff",
+            "on-surface": "#0d1c2e",
+            "primary-fixed": "#d6e3ff",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary": "#1b2127",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#eaf1ff",
+            "on-secondary-container": "#167249",
+            "surface-container": "#e5eeff",
+            "tertiary-container": "#30363c",
+            "background": "#f8f9ff",
+            "surface-container-high": "#dce9ff",
+            "tertiary-fixed": "#dde3eb",
+            "tertiary-fixed-dim": "#c1c7cf",
+            "on-secondary-fixed-variant": "#005231",
+            "secondary-fixed-dim": "#83d8a6",
+            "primary": "#002045",
+            "on-tertiary-fixed-variant": "#41474e",
+            "surface-container-low": "#eff4ff",
+            "on-tertiary-container": "#989fa6",
+            "surface-container-highest": "#d4e4fc",
+            "secondary-container": "#9ff5c1",
+            "surface": "#f8f9ff",
+            "inverse-surface": "#223144",
+            "inverse-primary": "#adc7f7",
+            "on-primary-fixed-variant": "#2d476f",
+            "surface-variant": "#d4e4fc",
+            "surface-bright": "#f8f9ff",
+            "on-background": "#0d1c2e",
+            "secondary-fixed": "#9ff5c1",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#43474e",
+            "primary-fixed-dim": "#adc7f7",
+            "on-primary-container": "#86a0cd",
+            "primary-container": "#1a365d",
+            "surface-tint": "#455f88",
+            "outline": "#74777f",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "outline-variant": "#c4c6cf",
+            "secondary": "#0a6c44",
+            "on-primary": "#ffffff",
+            "surface-dim": "#ccdbf4",
+            "on-tertiary-fixed": "#161c22",
+            "on-primary-fixed": "#001b3c",
+            "on-secondary-fixed": "#002111"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "lg": "24px",
+            "margin": "40px",
+            "unit": "4px",
+            "md": "16px",
+            "xs": "4px",
+            "xl": "32px",
+            "sm": "8px",
+            "gutter": "20px"
+          },
+          "fontFamily": {
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Work Sans"],
+            "body-lg": ["Inter"],
+            "data-numeral": ["Work Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-xl": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+            "data-numeral": ["14px", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      background-color: #f8f9ff;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
 </head>
-<body>
+
+<body class="font-body-md text-on-surface antialiased">
   <app-root></app-root>
 </body>
+
 </html>
