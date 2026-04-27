@@ -181,7 +181,7 @@ export class DataServices {
       .from('transaction')
       .select('id, description, amount, type, created_at')
       .eq('fondo_id', fondoId)
-      .order('created_at', { ascending: true })
+      .order('created_at', { ascending: false })
       .range(0,20);
 
       if (error) {
@@ -411,7 +411,7 @@ export class DataServices {
       console.log(error);
     }
   }
-  
+
   // Consulta de transacciones hechas por un miembro especifico organizadas por fecha
   async transaccionesPorMiembro(miembroId: number, fondoId: number): Promise<any> {
     try {
@@ -422,12 +422,30 @@ export class DataServices {
       })
   
       if (error) alert(error.message)
-      else console.log(data)
+      // else console.log(data)
   
       return data;
   
     } catch (error) {
       console.log(error);
+    }
+  }
+  
+  // Consulta de proximas reuniones
+  async reunionProxima(fondoId: number): Promise<any> {
+    try {
+      let { data: reunion, error } = await this.supabaseServices.supabase
+        .from('reunion')
+        .select('*')
+        .eq('fondo_id', fondoId)
+        .range(0, 9)
+
+        if (error) alert(error.message)
+        else console.log(reunion)
+
+      return reunion;
+    } catch (error) {
+      console.log(error)
     }
   }
 }

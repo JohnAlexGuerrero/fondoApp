@@ -1,15 +1,97 @@
-<p>transactions-component works!</p>
+<main class="lg:ml-64 p-4 lg:p-8 pb-24">
+    <!-- Search and Date Filter Section -->
+    <div class="mb-8 grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="lg:col-span-8">
+            <div class="relative group">
+                <span
+                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+                <input
+                    class="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm"
+                    placeholder="Search by member name or ID..." type="text" />
+            </div>
+        </div>
+        <div class="lg:col-span-4">
+            <button
+                class="w-full flex items-center justify-between px-4 py-3 bg-white border border-slate-200 rounded-lg hover:border-primary transition-colors shadow-sm">
+                <div class="flex items-center">
+                    <span class="material-symbols-outlined mr-2 text-primary">calendar_month</span>
+                    <span class="text-on-surface">Oct 01, 2023 - Oct 31, 2023</span>
+                </div>
+                <span class="material-symbols-outlined text-outline">expand_more</span>
+            </button>
+        </div>
+    </div>
+    <!-- Metric Cards (Fiscal Integrity Style) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-white p-4 lg:p-6 rounded-xl border border-slate-100 shadow-sm">
+            <p class="text-xs font-label-md text-outline mb-1 uppercase tracking-wider">Total Volume</p>
+            <p class="text-headline-md font-data-numeral text-primary">{{ totalValue() | currency:'USD':'symbol' }}</p>
+            <div class="flex items-center mt-2 text-secondary text-xs font-semibold">
+                <span class="material-symbols-outlined text-sm mr-1">trending_up</span>
+                <span>12% from last month</span>
+            </div>
+        </div>
+        <div class="bg-white p-4 lg:p-6 rounded-xl border border-slate-100 shadow-sm">
+            <p class="text-xs font-label-md text-outline mb-1 uppercase tracking-wider">Pending</p>
+            <p class="text-headline-md font-data-numeral text-primary">42</p>
+            <p class="text-outline text-xs mt-2">Requires verification</p>
+        </div>
+        <div class="bg-white p-4 lg:p-6 rounded-xl border border-slate-100 shadow-sm">
+            <p class="text-xs font-label-md text-outline mb-1 uppercase tracking-wider">Growth Dividends</p>
+            <p class="text-headline-md font-data-numeral text-secondary">$84,200.00</p>
+            <p class="text-outline text-xs mt-2">Q4 Projections</p>
+        </div>
+        <div class="bg-white p-4 lg:p-6 rounded-xl border border-slate-100 shadow-sm">
+            <p class="text-xs font-label-md text-outline mb-1 uppercase tracking-wider">Member Deposits</p>
+            <p class="text-headline-md font-data-numeral text-primary">312</p>
+            <p class="text-outline text-xs mt-2">Processed today</p>
+        </div>
+    </div>
+    <!-- Transactions Container -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        <!-- Table Header / Quick Filters -->
+        <div
+            class="px-6 py-4 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide pb-2 md:pb-0">
+                <button
+                    class="px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium whitespace-nowrap"
+                    (click)="getAllTransactions()" ngClass="{'bg-primary': isActive}">All</button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-sm font-medium whitespace-nowrap"
+                    (click)="filterAportes()">Aportes</button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-sm font-medium whitespace-nowrap"
+                    (click)="filterEventos()">Eventos</button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-sm font-medium whitespace-nowrap"
+                    (click)="filterPrestamos()">Prestamos</button>
+                <button
+                    class="px-4 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors text-sm font-medium whitespace-nowrap"
+                     (click)="filterGastos()">Gastos</button>
+            </div>
+            <button class="flex items-center text-primary font-semibold text-sm hover:underline">
+                <span class="material-symbols-outlined text-sm mr-1">file_download</span>
+                Export Ledger
+            </button>
+        </div>
+        <!-- Transaction List/Table -->
+        <div class="overflow-x-auto">
+            <app-transactions-list [transactions]="transactions()"></app-transactions-list>
+
+        </div>
+        <!-- Pagination -->
+        <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+            <p class="text-xs text-outline font-label-md">Showing 1 to 10 of 2,450 results</p>
+            <div class="flex gap-2">
+                <button class="p-1.5 rounded border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50"
+                    disabled="">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button class="p-1.5 rounded border border-slate-200 bg-white hover:bg-slate-50">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
 <div>
-    <small>Filtrar por:</small>
-    <button mat-button (click)="getAllTransactions()" ngClass="{'button-active': isActive}">Todos</button>
-    <button mat-button (click)="filterAportes()">Aportes</button>
-    <button mat-button (click)="filterEventos()">Eventos</button>
-    <button mat-button (click)="filterPrestamos()">Prestamos</button>
-    <button mat-button (click)="filterGastos()">Gastos</button>
-</div>
-
-<div style="margin-top: 10px;">
-    <mat-divider></mat-divider>
-    <app-transactions-list [transactions]="transactions()"></app-transactions-list>
-
-</div>

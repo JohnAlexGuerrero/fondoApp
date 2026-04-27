@@ -5,6 +5,7 @@ import { TransactionsComponent } from './features/transaction/pages/transactions
 import { AccountComponent } from './features/accounts/pages/account-component/account-component';
 import { TransactionsUser } from './features/transaction/pages/transactions-user/transactions-user';
 import { Dashboard } from './features/user/pages/dashboard/dashboard';
+import { Event } from './features/events/pages/event/event';
 
 export const routes: Routes = [
     {
@@ -36,5 +37,10 @@ export const routes: Routes = [
         path: 'miembros/:id',
         component: Dashboard,
         title: 'dashboard miembro'
+    },
+    {
+        path: 'eventos',
+        component: Event,
+        title: 'Eventos'
     }
 ];

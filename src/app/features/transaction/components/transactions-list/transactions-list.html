@@ -1,24 +1,62 @@
-
-<mat-list>
-    @if(transactions.length == 0) {
-      <p>No hay movimientos registrados.</p>
-    }
-
+<table class="w-full text-left border-collapse">
+  <thead>
+    <tr class="bg-slate-50">
+      <th class="px-6 py-4 text-xs font-label-md text-outline uppercase tracking-wider">Member Details
+      </th>
+      <th class="px-6 py-4 text-xs font-label-md text-outline uppercase tracking-wider">Type</th>
+      <th class="px-6 py-4 text-xs font-label-md text-outline uppercase tracking-wider text-right">
+        Amount</th>
+      <th class="px-6 py-4 text-xs font-label-md text-outline uppercase tracking-wider">Date</th>
+      <th class="px-6 py-4 text-xs font-label-md text-outline uppercase tracking-wider">Status</th>
+      <th class="px-6 py-4 text-xs font-label-md text-outline uppercase tracking-wider"></th>
+    </tr>
+  </thead>
+  <tbody class="divide-y divide-slate-100">
     @for(transaction of transactions; track transaction.id) {
-      <mat-list-item :key="transaction.id">
-        <div style="display: flex; justify-content: left; align-items:center;padding: 3px;">
-          @if (transaction.type == 'Ingreso') {
-            <mat-icon aria-hidden="false" aria-label="Example trending_up icon" fontIcon="trending_up"></mat-icon>
-          }@else {
-            <mat-icon aria-hidden="false" aria-label="Example trending_down icon" fontIcon='trending_down'></mat-icon>
-          }
-
-          <div style="margin-left: 5px;">
-            <p matListItemTitle class="description-large">{{ transaction.description }}</p>
-            <span matListItemLine style="color: rgb(189, 192, 194);">{{ transaction.created_at | date:'dd MMM yy hh:mm a' }}</span>
+    <tr class="hover:bg-slate-50 transition-colors">
+      <td class="px-6 py-4">
+        <div class="flex items-center">
+          <div class="w-8 h-8 rounded bg-primary-container/10 flex items-center justify-center mr-3">
+            @if (transaction.type == 'Ingreso') {
+              <span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+            }@else {
+              <span class="material-symbols-outlined text-primary text-sm">trending_down</span>
+            }
           </div>
-          <span style="font-size: 22px; font-weight:bold;">{{ transaction.amount | currency:'USD':'symbol' }}</span>
+          <div>
+            <p class="font-semibold text-on-surface">{{ transaction.description }}</p>
+            <p class="text-xs text-outline">ID: #FUND-88{{transaction.id}}</p>
+          </div>
         </div>
-      </mat-list-item>
+      </td>
+      <td class="px-6 py-4">
+        @if (transaction.type == 'Ingreso') {
+          <span class="text-sm px-2.5 py-1 rounded bg-blue-50 text-blue-700 font-medium">Ingreso</span>
+        }@else {
+          <span class="text-sm px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">Debito</span>
+        }
+      </td>
+      <td class="px-6 py-4 text-right">
+        <p class="font-data-numeral text-on-surface">{{ transaction.amount | currency:'USD':'symbol' }}</p>
+      </td>
+      <td class="px-6 py-4 text-sm text-outline">{{ transaction.created_at | date:'MMM dd, yyyy'
+            }}</td>
+      <td class="px-6 py-4">
+        <div class="flex items-center text-secondary text-sm font-semibold">
+          <span class="w-2 h-2 rounded-full bg-secondary mr-2"></span>
+          Processed
+        </div>
+      </td>
+      <td class="px-6 py-4 text-right">
+        <button class="text-outline hover:text-primary"><span
+            class="material-symbols-outlined">more_vert</span></button>
+      </td>
+    </tr>
     }
-</mat-list>
+
+    @if(transactions.length == 0) {
+    <p>No hay movimientos registrados.</p>
+    }
+    
+  </tbody>
+</table>

@@ -1,17 +1,237 @@
-<p>account-list works!</p>
+<main class="lg:ml-64 p-4 md:p-8 max-w-7xl mx-auto">
+    <!-- Welcome & Search Section -->
+    <section class="mb-8">
+        <h2 class="font-headline-xl text-primary mb-6">Miembros del Fondo</h2>
+        <div class="relative max-w-2xl">
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+            <input
+                class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-shadow shadow-sm"
+                placeholder="Buscar miembros por nombre, ID o segmento..." type="text" />
+        </div>
+    </section>
+    <!-- Filter Chips -->
+    <section class="flex flex-wrap gap-3 mb-8">
+        <button
+            class="px-5 py-2 bg-primary text-white rounded-full font-label-md transition-all shadow-sm">Todos</button>
+        <button
+            class="px-5 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md transition-all">Activos</button>
+        <button
+            class="px-5 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md transition-all">Pendientes</button>
+            <button
+            class="px-5 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md transition-all">Inactivos</button>
+        </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        @if(miembros.length == 0) {
+            <p>No hay miembros, aun.</p>
+        }
 
-<mat-list>
-    @if(miembros.length == 0) {
-        <p>No hay miembros, aun.</p>
-    }
-
-    @for(miembro of miembros; track miembro.id) {
-        <mat-list-item :key="miembro.id">
-            <mat-icon matListItemIcon aria-hidden="false" aria-label="Example trending_up icon" fontIcon="face" class="material-icons md-light { color: rgba(255, 255, 255, 1); } md-36"></mat-icon>
-            <p matListItemTitle>{{ miembro.full_name }}</p>
-            <p matListItemLine>{{ miembro.total_aportes | currency:'USD':'symbol' }}</p>
-            <small matListItemLine>{{ miembro.created_at }}</small>
-            <button matButton [routerLink]="['/miembros', miembro.id]">Ver</button>
-        </mat-list-item>
-    }
-</mat-list>
+@for(miembro of miembros; track miembro.id) {
+    <div
+        class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-[0_2px_4px_rgba(26,54,93,0.05)] hover:shadow-md transition-all group">
+        <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-white font-headline-sm">
+                    JS
+                </div>
+                <div>
+                    <h3 class="font-headline-sm text-on-surface">{{ miembro.full_name }}</h3>
+                    <p class="text-xs font-data-numeral text-outline">ID: #882{{miembro.id}}</p>
+                </div>
+            </div>
+            <span
+                class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Activo</span>
+        </div>
+        <div class="py-3 border-t border-b border-surface-variant mb-4">
+            <p class="text-xs text-outline mb-1 uppercase tracking-tighter">Total Aportes</p>
+            <p class="font-body-md font-semibold text-primary">{{ miembro.total_aportes | currency:'USD':'symbol' }}</p>
+        </div>
+        <div class="flex justify-end gap-2">
+            <!-- <button
+                class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                <span class="material-symbols-outlined text-[20px]">visibility</span>
+                <span class="text-xs font-medium">Ver Perfil</span>
+            </button> -->
+            <button
+                [routerLink]="['/miembros', miembro.id]"
+                class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                <span class="material-symbols-outlined text-[20px]">history</span>
+                <span class="text-xs font-medium">Historial</span>
+            </button>
+        </div>
+    </div>
+}
+    <!-- Members Grid -->
+        <!-- Member Card 1 -->
+        <!-- Member Card 2 -->
+        <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-[0_2px_4px_rgba(26,54,93,0.05)] hover:shadow-md transition-all group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-tertiary flex items-center justify-center text-white font-headline-sm">
+                        MP
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-on-surface">Mariana Peralta</h3>
+                        <p class="text-xs font-data-numeral text-outline">ID: #88304</p>
+                    </div>
+                </div>
+                <span
+                    class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant text-[10px] font-bold uppercase">Pendiente</span>
+            </div>
+            <div class="py-3 border-t border-b border-surface-variant mb-4">
+                <p class="text-xs text-outline mb-1 uppercase tracking-tighter">Segmento</p>
+                <p class="font-body-md font-semibold text-primary">Logística</p>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                    <span class="text-xs font-medium">Ver Perfil</span>
+                </button>
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">history</span>
+                    <span class="text-xs font-medium">Historial</span>
+                </button>
+            </div>
+        </div>
+        <!-- Member Card 3 -->
+        <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-[0_2px_4px_rgba(26,54,93,0.05)] hover:shadow-md transition-all group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-[#1A365D] flex items-center justify-center text-white font-headline-sm">
+                        RG
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-on-surface">Ricardo Gómez</h3>
+                        <p class="text-xs font-data-numeral text-outline">ID: #88245</p>
+                    </div>
+                </div>
+                <span
+                    class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Activo</span>
+            </div>
+            <div class="py-3 border-t border-b border-surface-variant mb-4">
+                <p class="text-xs text-outline mb-1 uppercase tracking-tighter">Segmento</p>
+                <p class="font-body-md font-semibold text-primary">Producción</p>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                    <span class="text-xs font-medium">Ver Perfil</span>
+                </button>
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">history</span>
+                    <span class="text-xs font-medium">Historial</span>
+                </button>
+            </div>
+        </div>
+        <!-- Member Card 4 -->
+        <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-[0_2px_4px_rgba(26,54,93,0.05)] hover:shadow-md transition-all group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm">
+                        AV
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-on-surface">Ana Velázquez</h3>
+                        <p class="text-xs font-data-numeral text-outline">ID: #88412</p>
+                    </div>
+                </div>
+                <span
+                    class="px-3 py-1 rounded-full bg-error-container text-on-error-container text-[10px] font-bold uppercase">Inactivo</span>
+            </div>
+            <div class="py-3 border-t border-b border-surface-variant mb-4">
+                <p class="text-xs text-outline mb-1 uppercase tracking-tighter">Segmento</p>
+                <p class="font-body-md font-semibold text-primary">Administrativo</p>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                    <span class="text-xs font-medium">Ver Perfil</span>
+                </button>
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">history</span>
+                    <span class="text-xs font-medium">Historial</span>
+                </button>
+            </div>
+        </div>
+        <!-- Member Card 5 -->
+        <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-[0_2px_4px_rgba(26,54,93,0.05)] hover:shadow-md transition-all group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-white font-headline-sm">
+                        CL
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-on-surface">Carlos Luna</h3>
+                        <p class="text-xs font-data-numeral text-outline">ID: #88119</p>
+                    </div>
+                </div>
+                <span
+                    class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Activo</span>
+            </div>
+            <div class="py-3 border-t border-b border-surface-variant mb-4">
+                <p class="text-xs text-outline mb-1 uppercase tracking-tighter">Segmento</p>
+                <p class="font-body-md font-semibold text-primary">Producción</p>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                    <span class="text-xs font-medium">Ver Perfil</span>
+                </button>
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">history</span>
+                    <span class="text-xs font-medium">Historial</span>
+                </button>
+            </div>
+        </div>
+        <!-- Member Card 6 -->
+        <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-[0_2px_4px_rgba(26,54,93,0.05)] hover:shadow-md transition-all group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-on-primary-container flex items-center justify-center text-white font-headline-sm">
+                        EM
+                    </div>
+                    <div>
+                        <h3 class="font-headline-sm text-on-surface">Elena Marín</h3>
+                        <p class="text-xs font-data-numeral text-outline">ID: #88500</p>
+                    </div>
+                </div>
+                <span
+                    class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Activo</span>
+            </div>
+            <div class="py-3 border-t border-b border-surface-variant mb-4">
+                <p class="text-xs text-outline mb-1 uppercase tracking-tighter">Segmento</p>
+                <p class="font-body-md font-semibold text-primary">Logística</p>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                    <!-- <span class="text-xs font-medium">Ver Perfil</span> -->
+                </button>
+                <button
+                    class="p-2 rounded-lg hover:bg-surface-container-high text-primary transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">history</span>
+                    <span class="text-xs font-medium">Historial</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,249 @@
+<main class="lg:ml-64 p-6 pb-24 lg:pb-6">
+    <!-- Dashboard Header & Tabs -->
+    <div class="mb-8">
+        <h2 class="text-headline-md font-headline-md text-primary mb-4">Eventos y Reuniones</h2>
+        <div class="flex border-b border-outline-variant">
+            <button class="px-6 py-3 font-label-md text-label-md active-tab uppercase tracking-wider">Próximos</button>
+            <button
+                class="px-6 py-3 font-label-md text-label-md text-on-surface-variant hover:text-primary uppercase tracking-wider">Historial</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+        <!-- Calendar Section -->
+        <div class="xl:col-span-4 space-y-gutter">
+            <div
+                class="bg-surface-container-lowest p-6 rounded-xl shadow-[0px_2px_4px_rgba(26,54,93,0.05)] border border-outline-variant">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-headline-sm text-headline-sm text-primary">Calendario Fiscal</h3>
+                    <div class="flex gap-2">
+                        <span class="material-symbols-outlined cursor-pointer hover:bg-surface-variant p-1 rounded"
+                            data-icon="chevron_left">chevron_left</span>
+                        <span class="material-symbols-outlined cursor-pointer hover:bg-surface-variant p-1 rounded"
+                            data-icon="chevron_right">chevron_right</span>
+                    </div>
+                </div>
+                <div class="text-center font-bold text-primary mb-4">Octubre 2024</div>
+                <div class="grid grid-cols-7 gap-2 text-center text-label-md text-on-surface-variant mb-2">
+                    <span>LU</span><span>MA</span><span>MI</span><span>JU</span><span>VI</span><span>SA</span><span>DO</span>
+                </div>
+                <div class="grid grid-cols-7 gap-y-4 text-center">
+                    <!-- Simplified Calendar Grid -->
+                    <div class="p-2 text-on-surface-variant/40">25</div>
+                    <div class="p-2 text-on-surface-variant/40">26</div>
+                    <div class="p-2 text-on-surface-variant/40">27</div>
+                    <div class="p-2 text-on-surface-variant/40">28</div>
+                    <div class="p-2 text-on-surface-variant/40">29</div>
+                    <div class="p-2 text-on-surface-variant/40">30</div>
+                    <div class="p-2">1</div>
+                    <div class="p-2">2</div>
+                    <div class="p-2">3</div>
+                    <div class="p-2 relative flex flex-col items-center">
+                        <span>4</span>
+                        <div class="day-dot bg-secondary"></div>
+                    </div>
+                    <div class="p-2">5</div>
+                    <div class="p-2">6</div>
+                    <div class="p-2">7</div>
+                    <div class="p-2">8</div>
+                    <div class="p-2">9</div>
+                    <div class="p-2 bg-primary-container text-white rounded-lg">10</div>
+                    <div class="p-2">11</div>
+                    <div class="p-2 relative flex flex-col items-center">
+                        <span>12</span>
+                        <div class="day-dot bg-error"></div>
+                    </div>
+                    <div class="p-2">13</div>
+                    <div class="p-2">14</div>
+                    <div class="p-2">15</div>
+                    <div class="p-2">16</div>
+                    <div class="p-2 relative flex flex-col items-center">
+                        <span>17</span>
+                        <div class="day-dot bg-primary-container"></div>
+                    </div>
+                    <div class="p-2">18</div>
+                    <div class="p-2">19</div>
+                    <div class="p-2">20</div>
+                    <div class="p-2">21</div>
+                </div>
+                <div class="mt-6 pt-6 border-t border-outline-variant space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                        <span class="text-label-md">Reunión de Junta Directiva</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 rounded-full bg-error"></div>
+                        <span class="text-label-md">Cierre de Auditoría Trimestral</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Events List Section -->
+        <div class="xl:col-span-8 space-y-gutter">
+            <!-- Upcoming Section -->
+            <div class="space-y-4">
+                <h3 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+                    <span class="material-symbols-outlined" data-icon="upcoming">upcoming</span>
+                    Eventos Próximos
+                </h3>
+                @for (meet of meetings(); track $index) {
+                    @if (meet.status) {
+
+                        <div
+                        class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden hover:border-primary-container transition-colors">
+                        <div class="flex flex-col md:flex-row">
+                            <div
+                                class="md:w-48 bg-surface-container-low p-6 flex flex-col justify-center items-center text-center border-r border-outline-variant">
+                                    <span class="text-headline-xl font-headline-xl text-primary">10</span>
+                                    <span
+                                    class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">OCT
+                                    2024</span>
+                                    <span
+                                    class="mt-2 py-1 px-3 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold">REUNIÓN</span>
+                                </div>
+                                
+                                <div class="flex-1 p-6 flex flex-col justify-between">
+                                    <div>
+                                        <h4 class="text-headline-sm font-headline-sm text-primary mb-2">{{ meet.name }}</h4>
+                                        <p class="text-body-md text-on-surface-variant mb-4">{{ meet.description }}</p>
+                                        <div class="flex flex-wrap gap-4 text-label-md">
+                                            <div class="flex items-center gap-1">
+                                                <span class="material-symbols-outlined text-sm"
+                                                data-icon="schedule">schedule</span>
+                                                09:00 AM - 11:30 AM
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <span class="material-symbols-outlined text-sm"
+                                                data-icon="location_on">location_on</span>
+                                                {{ meet.place }}
+                                            </div>
+                                            <!-- <div class="flex items-center gap-1">
+                                                <span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+                                                45 Invitados
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                            
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden hover:border-primary-container transition-colors">
+                        <div class="flex flex-col md:flex-row">
+                        <div
+                            class="md:w-48 bg-surface-container-low p-6 flex flex-col justify-center items-center text-center border-r border-outline-variant">
+                            <span class="text-headline-xl font-headline-xl text-primary">10</span>
+                            <span
+                                class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">OCT
+                                2024</span>
+                            <span
+                                class="mt-2 py-1 px-3 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold">REUNIÓN</span>
+                        </div>
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-headline-sm font-headline-sm text-primary mb-2">Asamblea de Asociados -
+                                    Fondo de Inversión A</h4>
+                                <p class="text-body-md text-on-surface-variant mb-4">Discusión anual sobre rendimientos,
+                                    nuevas políticas de crédito y elección de comité fiscalizador.</p>
+                                <div class="flex flex-wrap gap-4 text-label-md">
+                                    <div class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-sm"
+                                            data-icon="schedule">schedule</span>
+                                        09:00 AM - 11:30 AM
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-sm"
+                                            data-icon="location_on">location_on</span>
+                                        Sala Principal de Conferencias
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+                                        45 Invitados
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 flex justify-end gap-3">
+                                <button
+                                    class="px-4 py-2 text-primary border border-primary rounded-lg text-sm font-semibold hover:bg-surface-container transition-colors">Detalles</button>
+                                <button
+                                    class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden hover:border-primary-container transition-colors">
+                    <div class="flex flex-col md:flex-row">
+                        <div
+                            class="md:w-48 bg-surface-container-low p-6 flex flex-col justify-center items-center text-center border-r border-outline-variant">
+                            <span class="text-headline-xl font-headline-xl text-primary">17</span>
+                            <span
+                                class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">OCT
+                                2024</span>
+                            <span
+                                class="mt-2 py-1 px-3 bg-primary-container text-white rounded-full text-[10px] font-bold">CAPACITACIÓN</span>
+                        </div>
+                        <div class="flex-1 p-6">
+                            <h4 class="text-headline-sm font-headline-sm text-primary mb-2">Taller de Normativa Fiscal
+                                2025</h4>
+                            <p class="text-body-md text-on-surface-variant mb-4">Actualización estratégica sobre los
+                                cambios legislativos que afectan la gestión de fondos colectivos.</p>
+                            <div class="flex flex-wrap gap-4 text-label-md">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                                    02:00 PM - 05:00 PM
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-sm" data-icon="videocam">videocam</span>
+                                    Plataforma Virtual (Enlace enviado)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- History Section -->
+            <div class="space-y-4 pt-8">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface-variant flex items-center gap-2">
+                    <span class="material-symbols-outlined" data-icon="history">history</span>
+                    Historial Reciente
+                </h3>
+                <div
+                    class="bg-surface p-4 rounded-xl border border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h5 class="font-bold text-primary">Cierre Fiscal Q3 - Revisión Interna</h5>
+                            <span class="text-label-md text-on-surface-variant">Finalizado: 30 de Septiembre,
+                                2024</span>
+                        </div>
+                        <span class="text-secondary flex items-center gap-1 font-semibold text-sm">
+                            <span class="material-symbols-outlined text-sm" data-icon="check_circle"
+                                data-weight="fill">check_circle</span>
+                            Completado
+                        </span>
+                    </div>
+                    <p class="text-body-md text-on-surface-variant italic">"Se revisaron todos los estados de cuenta del
+                        tercer trimestre sin hallazgos críticos. Se aprobó la distribución de excedentes."</p>
+                </div>
+                <div
+                    class="bg-surface p-4 rounded-xl border border-outline-variant hover:bg-surface-container-low transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h5 class="font-bold text-primary">Reunión Ordinaria de Socios</h5>
+                            <span class="text-label-md text-on-surface-variant">Finalizado: 15 de Septiembre,
+                                2024</span>
+                        </div>
+                        <span class="text-secondary flex items-center gap-1 font-semibold text-sm">
+                            <span class="material-symbols-outlined text-sm" data-icon="check_circle"
+                                data-weight="fill">check_circle</span>
+                            Completado
+                        </span>
+                    </div>
+                    <p class="text-body-md text-on-surface-variant italic">"Quórum alcanzado (82%). Aprobación de la
+                        línea de crédito para pymes asociadas con tasa preferencial."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
